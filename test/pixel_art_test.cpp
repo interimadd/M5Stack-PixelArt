@@ -18,5 +18,4 @@ namespace {
     EXPECT_EQ(1, pixel_art[0][0]);
     EXPECT_EQ(0, pixel_art[1][1]);
   }
-
 } // namespace
