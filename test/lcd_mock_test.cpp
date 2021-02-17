@@ -72,4 +72,16 @@ namespace {
     };
     EXPECT_EQ(expect_state, lcd->getState());
   }
+
+  TEST_F(TestLCDMock, DrawDotAtUnderLimit)
+  {
+    int dot_size = 1;
+    int dot_color = 1;
+    lcd->fillRect(-1, -1, dot_size, dot_size, dot_color);
+    LCDState expect_state = {
+      {0, 0, 0},
+      {0, 0, 0}
+    };
+    EXPECT_EQ(expect_state, lcd->getState());
+  }
 } // namespace
