@@ -8,8 +8,8 @@ namespace {
     protected:
       LCDController *lcd;
       void SetUp(){
-        int kLCDHorizontalPixelNum = 3;
-        int kLCDVerticalPixelNum = 2;
+        const int kLCDHorizontalPixelNum = 3;
+        const int kLCDVerticalPixelNum = 2;
         lcd = new LCDController(kLCDHorizontalPixelNum, kLCDVerticalPixelNum);
       }
       virtual void TearDown(){}
@@ -26,24 +26,49 @@ namespace {
 
   TEST_F(TestLCDMock, FillRectBlack)
   {
-    int x_pos = 0, y_pos = 0;
-    int width = 2, height = 2;
-    lcd->fillRect(x_pos, y_pos, width, height, 1);
+    int v_pos = 0, h_pos = 1;
+    int v_len = 2, h_len = 1;
+    lcd->fillRect(v_pos, h_pos, v_len, h_len, 1);
     LCDState expect_state = {
-      {1, 1, 0},
-      {1, 1, 0}
+      {0, 1, 0},
+      {0, 1, 0}
+    };
+    EXPECT_EQ(expect_state, lcd->getState());
+  }
+
+  TEST_F(TestLCDMock, FillRectBlackAll)
+  {
+    int v_pos = 0, h_pos = 0;
+    int v_len = 2, h_len = 3;
+    lcd->fillRect(v_pos, h_pos, v_len, h_len, 1);
+    LCDState expect_state = {
+      {1, 1, 1},
+      {1, 1, 1}
     };
     EXPECT_EQ(expect_state, lcd->getState());
   }
 
   TEST_F(TestLCDMock, FillRectBlackOverSize)
   {
-    int x_pos = 0, y_pos = 0;
-    int width = 100, height = 100;
-    lcd->fillRect(x_pos, y_pos, width, height, 1);
+    int v_pos = 0, h_pos = 0;
+    int v_len = 100, h_len = 100;
+    lcd->fillRect(v_pos, h_pos, v_len, h_len, 1);
     LCDState expect_state = {
       {1, 1, 1},
       {1, 1, 1}
+    };
+    EXPECT_EQ(expect_state, lcd->getState());
+  }
+
+  TEST_F(TestLCDMock, DrawDot)
+  {
+    int dot_size = 1;
+    int dot_color = 1;
+    lcd->fillRect(0, 0, dot_size, dot_size, dot_color);
+    lcd->fillRect(1, 2, dot_size, dot_size, dot_color);
+    LCDState expect_state = {
+      {1, 0, 0},
+      {0, 0, 1}
     };
     EXPECT_EQ(expect_state, lcd->getState());
   }
