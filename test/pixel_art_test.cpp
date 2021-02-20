@@ -7,8 +7,16 @@
 namespace {
   class TestPixelArt : public ::testing::Test
   {
-    virtual void SetUp(){}
-    virtual void TearDown(){}
+    protected:
+      LCDController *lcd;
+      PixelArtManager *mng;
+      void SetUp(){
+        const int kLCDHorizontalPixelNum = 6;
+        const int kLCDVerticalPixelNum = 4;
+        lcd = new LCDController(kLCDHorizontalPixelNum, kLCDVerticalPixelNum);
+        mng = new PixelArtManager(lcd);
+      }
+      void TearDown(){}
   };
 
   TEST_F(TestPixelArt, CreatePixelArtObj)
@@ -23,42 +31,35 @@ namespace {
 
   TEST_F(TestPixelArt, InitPixelArtManager)
   {
-    const int kLCDHorizontalPixelNum = 3;
-    const int kLCDVerticalPixelNum = 2;
-    LCDController *lcd = new LCDController(kLCDHorizontalPixelNum, kLCDVerticalPixelNum);
-    PixelArtManager *mng = new PixelArtManager(lcd);
-
-    MonochromePixelArt expect = {
-      {0, 0, 0},
-      {0, 0, 0}
+    LCDState expect = {
+      {0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0}
     };
     EXPECT_EQ(expect, lcd->getState());
   }
 
   TEST_F(TestPixelArt, DrawPixelArt)
   {
-    const int kLCDHorizontalPixelNum = 3;
-    const int kLCDVerticalPixelNum = 2;
-    LCDController *lcd = new LCDController(kLCDHorizontalPixelNum, kLCDVerticalPixelNum);
-    PixelArtManager *mng = new PixelArtManager(lcd);
-
     int pos_x = 0, pos_y = 0, scale = 1;
     MonochromePixelArt pixel_art = {
       {1, 0, 0},
       {0, 0, 1}
     };
     mng->drawPixelArt(pixel_art, pos_x, pos_y, scale);
-
-    EXPECT_EQ(pixel_art, lcd->getState());
+  
+    LCDState expect = {
+      {1, 0, 0, 0, 0, 0},
+      {0, 0, 1, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0},
+      {0, 0, 0, 0, 0, 0}
+    };
+    EXPECT_EQ(expect, lcd->getState());
   }
 
   TEST_F(TestPixelArt, DrawDoubleScalePixelArt)
   {
-    const int kLCDHorizontalPixelNum = 6;
-    const int kLCDVerticalPixelNum = 4;
-    LCDController *lcd = new LCDController(kLCDHorizontalPixelNum, kLCDVerticalPixelNum);
-    PixelArtManager *mng = new PixelArtManager(lcd);
-
     int pos_x = 1, pos_y = 0, scale = 2;
     MonochromePixelArt pixel_art = {
       {1, 0},
@@ -77,11 +78,6 @@ namespace {
 
   TEST_F(TestPixelArt, DrawOverSizePixelArt)
   {
-    const int kLCDHorizontalPixelNum = 6;
-    const int kLCDVerticalPixelNum = 4;
-    LCDController *lcd = new LCDController(kLCDHorizontalPixelNum, kLCDVerticalPixelNum);
-    PixelArtManager *mng = new PixelArtManager(lcd);
-
     int pos_x = 1, pos_y = 0, scale = 3;
     MonochromePixelArt pixel_art = {
       {1, 0},
