@@ -1,5 +1,8 @@
+#ifndef PIXEL_ART_H
+#define PIXEL_ART_H
+
 #include <vector>
-#include "lcd_controller.h"
+#include <stdint.h>
 
 using MonochromePixelArt = std::vector<std::vector<uint8_t>>;
 
@@ -14,11 +17,4 @@ class MonochromePixelArtWithFrame{
         MonochromePixelArt toNextFrame();
 };
 
-class PixelArtManager
-{
-    private:
-        LCDController *lcd_;
-    public:
-        PixelArtManager(LCDController* lcd);
-        void drawPixelArt(MonochromePixelArt pixel_art, int pos_x, int pos_y, int scale);
-};
+#endif
