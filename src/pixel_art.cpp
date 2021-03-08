@@ -11,6 +11,6 @@ MonochromePixelArt MonochromePixelArtWithFrame::getCurrentFramePixelArt(){
 }
 
 MonochromePixelArt MonochromePixelArtWithFrame::toNextFrame(){
-    if(++current_frame_no_ >= frame_length_) current_frame_no_ = 0;
-    return frame_pixel_arts_[current_frame_no_];
+    if(current_frame_no_ >= frame_length_) current_frame_no_ = 0;
+    return frame_pixel_arts_[current_frame_no_++];
 }

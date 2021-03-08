@@ -35,6 +35,7 @@ namespace {
     MonochromePixelArt frame_zero = {{0}};
     MonochromePixelArt frame_one = {{1}};
     MonochromePixelArtWithFrame *pixel_with_frame = new MonochromePixelArtWithFrame({frame_zero, frame_one});
+    EXPECT_EQ(frame_zero, pixel_with_frame->toNextFrame());
     EXPECT_EQ(frame_one, pixel_with_frame->toNextFrame());
     EXPECT_EQ(frame_zero, pixel_with_frame->toNextFrame());
   }
