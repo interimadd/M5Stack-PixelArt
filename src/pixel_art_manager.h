@@ -11,15 +11,21 @@ enum struct OperationType
     NEXT_BUTTON,
 };
 
+struct PixelArtWithScale
+{
+    MonochromePixelArtWithFrame pixel_art;
+    int scale;
+};
+
 class PixelArtManager
 {
     private:
         LCDController *lcd_;
-        std::vector<MonochromePixelArtWithFrame> pixel_art_with_frame_list_;
+        std::vector<PixelArtWithScale> pixel_art_with_frame_list_;
         int current_art_no_;
     public:
         PixelArtManager(LCDController* lcd);
-        void addPixelArtWithFrame(MonochromePixelArtWithFrame pixel_with_frame);
+        void addPixelArtWithFrame(MonochromePixelArtWithFrame pixel_with_frame, int scale=1);
         void drawPixelArt(MonochromePixelArt pixel_art, int pos_x, int pos_y, int scale);
         void drawNextFrame(OperationType operation);
 };
