@@ -3,7 +3,10 @@ project(m5stack-pixelart-test)
 
 add_subdirectory(lib/googletest/googletest)
 add_executable(m5stack-pixelart-test test_main.cpp pixel_art_test.cpp
-               pixel_art_manager_test.cpp lcd_mock_test.cpp
+               pixel_art_manager_test.cpp
+               lcd_mock_test.cpp
+               fake_button_service_test.cpp
                ../mock/lcd_controller_mock.cpp
+               ../mock/fake_button_service.cpp
                ../src/pixel_art.cpp ../src/pixel_art_manager.cpp)
 target_link_libraries(m5stack-pixelart-test gtest_main)
