@@ -21,3 +21,7 @@ void LCDController::fillRect(int v_pos, int h_pos, int v_len, int h_len, uint8_t
         }
     }
 }
+
+void LCDController::waitForNextFrame(){
+    // wait is not required for test
+}

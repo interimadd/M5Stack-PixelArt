@@ -28,6 +28,7 @@ class PixelArtManager
         void addPixelArtWithFrame(MonochromePixelArtWithFrame pixel_with_frame, int scale=1);
         void drawPixelArt(MonochromePixelArt pixel_art, int pos_x, int pos_y, int scale);
         void drawNextFrame(OperationType operation);
+        void waitForNextFrame();
 };
 
 #endif

@@ -34,3 +34,6 @@ void PixelArtManager::drawNextFrame(OperationType operation)
     MonochromePixelArt pixel_art_to_display = pixel_art_with_frame_list_[current_art_no_].pixel_art.toNextFrame();
     drawPixelArt(pixel_art_to_display, 0, 0, pixel_art_with_frame_list_[current_art_no_].scale);
 }
+
+
+void PixelArtManager::waitForNextFrame(){}
