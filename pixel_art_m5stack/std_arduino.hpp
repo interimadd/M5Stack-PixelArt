@@ -14,6 +14,11 @@ extern int LCD_VERTICAL_PIXEL_NUM;
 extern LCDController *lcd;
 extern PixelArtManager *mng;
 
+extern std::vector<std::vector<MonochromePixelArt>> ALL_PIXEL_ARTS_LIST;
+extern int PIXEL_ART_POS_X;
+extern int PIXEL_ART_POS_Y;
+extern int PIXEL_ART_SCALE;
+
 void setup();
 void loop();
 
