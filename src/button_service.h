@@ -4,6 +4,5 @@
 #include "pixel_art_manager.h"
 
 OperationType getButtonOperation();
-void setButtonoperation(OperationType op);
 
 #endif

@@ -1,5 +1,6 @@
 #include "gtest/gtest.h"
 #include "../pixel_art_m5stack/std_arduino.hpp"
+#include "../mock/fake_button_service.h"
 
 int LCD_HORIZONTAL_PIXEL_NUM = 3;
 int LCD_VERTICAL_PIXEL_NUM = 2;

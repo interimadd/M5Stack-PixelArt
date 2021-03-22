@@ -2,7 +2,6 @@
  * entrypoint.cpp
  * setup関数、loop関数の実装
  */
-// #include "M5Stack.h"
 #include "std_arduino.hpp"
 
 LCDController *lcd;
