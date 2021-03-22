@@ -11,9 +11,7 @@ PixelArtManager *mng;
 
 void setup()
 {
-    const int kLCDHorizontalPixelNum = 320;
-    const int kLCDVerticalPixelNum = 240;
-    lcd = new LCDController(kLCDHorizontalPixelNum, kLCDVerticalPixelNum);
+    lcd = new LCDController(LCD_HORIZONTAL_PIXEL_NUM, LCD_VERTICAL_PIXEL_NUM);
     mng = new PixelArtManager(lcd);
 }
 
