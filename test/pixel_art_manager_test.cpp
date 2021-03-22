@@ -141,7 +141,8 @@ namespace {
   {
     MonochromePixelArt frame_one = {{1}};
     MonochromePixelArtWithFrame *pixel_with_frame = new MonochromePixelArtWithFrame({frame_one});
-    mng->addPixelArtWithFrame(*pixel_with_frame, 3);
+    int scale = 3;
+    mng->addPixelArtWithFrame(*pixel_with_frame, scale);
 
     OperationType no_op = OperationType::NO_OPERATION;
     mng->drawNextFrame(no_op);
@@ -151,6 +152,29 @@ namespace {
       {1, 1, 1, 0, 0, 0},
       {1, 1, 1, 0, 0, 0},
       {0, 0, 0, 0, 0, 0}
+    };
+    EXPECT_EQ(expect_state, lcd->getState());
+  }
+
+
+  TEST_F(TestPixelArtManager, SetDrawPos)
+  {
+    MonochromePixelArt frame_one = {{1}};
+    MonochromePixelArtWithFrame *pixel_with_frame = new MonochromePixelArtWithFrame({frame_one});
+    int scale = 3;
+    mng->addPixelArtWithFrame(*pixel_with_frame, scale);
+    int pos_x = 2;
+    int pos_y = 1;
+    mng->setDrawPosition(pos_x, pos_y);
+
+    OperationType no_op = OperationType::NO_OPERATION;
+    mng->drawNextFrame(no_op);
+  
+    LCDState expect_state = {
+      {0, 0, 0, 0, 0, 0},
+      {0, 0, 1, 1, 1, 0},
+      {0, 0, 1, 1, 1, 0},
+      {0, 0, 1, 1, 1, 0}
     };
     EXPECT_EQ(expect_state, lcd->getState());
   }
