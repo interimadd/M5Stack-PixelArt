@@ -1,4 +1,4 @@
-#include "../src/lcd_controller.h"
+#include "../pixel_art_m5stack/src/lcd_controller.h"
 
 
 LCDController::LCDController(int horizontal_pixel_num, int vertical_pixel_num)

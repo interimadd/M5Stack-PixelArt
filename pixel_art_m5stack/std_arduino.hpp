@@ -5,8 +5,8 @@
 #ifndef STD_ARDUINO_HPP
 #define STD_ARDUINO_HPP
 
-#include "../src/button_service.h"
-#include "../src/pixel_art_manager.h"
+#include "src/button_service.h"
+#include "src/pixel_art_manager.h"
 
 extern int LCD_HORIZONTAL_PIXEL_NUM;
 extern int LCD_VERTICAL_PIXEL_NUM;

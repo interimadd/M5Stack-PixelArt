@@ -1,5 +1,5 @@
 #include "gtest/gtest.h"
-#include "../src/lcd_controller.h"
+#include "../pixel_art_m5stack/src/lcd_controller.h"
 
 
 namespace {

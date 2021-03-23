@@ -1,7 +1,7 @@
 #include "gtest/gtest.h"
-#include "../src/pixel_art.h"
-#include "../src/pixel_art_manager.h"
-#include "../src/lcd_controller.h"
+#include "../pixel_art_m5stack/src/pixel_art.h"
+#include "../pixel_art_m5stack/src/pixel_art_manager.h"
+#include "../pixel_art_m5stack/src/lcd_controller.h"
 
 
 
