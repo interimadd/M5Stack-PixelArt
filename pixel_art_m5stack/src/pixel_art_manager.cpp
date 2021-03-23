@@ -46,4 +46,6 @@ void PixelArtManager::setDrawPosition(int pos_x, int pos_y)
 }
 
 
-void PixelArtManager::waitForNextFrame(){}
+void PixelArtManager::waitForNextFrame(){
+    lcd_->waitForNextFrame();
+}
