@@ -1,7 +1,7 @@
 .PHONY: test clean
 
 TEST_BUILD_DIR := test/build
-SRC_BUILD_DIR := src/build
+SRC_BUILD_DIR := main/build
 
 test: $(TEST_BUILD_DIR)
 	set -x && cd $(TEST_BUILD_DIR) && cmake .. && make && ./m5stack-pixelart-test
