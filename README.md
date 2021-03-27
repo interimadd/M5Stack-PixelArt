@@ -52,6 +52,9 @@ $ make test
 $ cd main/build/
 /main/build$ ./console-pixelart
 ```
+
+**Upload Sketch To M5Stack**  
+Open M5Stack-PixelArt/pixel_art_m5stack/pixel_art_m5stack.ino with Arduino IDE and upload.
  
 # References
 **Pixel Art References**  
