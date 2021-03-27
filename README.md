@@ -1,13 +1,13 @@
 # M5Stack-PixelArt
 
-M5Stack-PixelArt is a sketch that displays pixel arts of Digimon on M5Stack.
+M5Stack-PixelArt is a sketch that displays pixel arts of Digimon on M5Stack.  
 The source code was implemented using a test-driven approach with GoogleTest.
  
 ## DEMO
-**M5Stack Sketch**
-<video src="https://user-images.githubusercontent.com/14195687/112707757-fe9e1400-8ef0-11eb-810a-bfeff8dd0184.mp4" autoplay muted></video>
+**M5Stack Sketch**  
+![l9cjp-6j1ga](https://user-images.githubusercontent.com/14195687/112708203-175bf900-8ef4-11eb-89d4-b0fc42cc5d74.gif)
 
-**Console Emulator**
+**Console Emulator**  
 ![degimon](https://user-images.githubusercontent.com/14195687/112707662-4ec8a680-8ef0-11eb-8fc9-325859c90ddf.gif)
  
 ## Requirement
@@ -25,7 +25,7 @@ $ cd M5Stack-PixelArt/
 
 ## Usage
 
-**Build And Run Test**
+**Build And Run Test**  
 ```bash
 $ make test
 set -x && cd test/build && cmake .. && make && ./m5stack-pixelart-test
@@ -46,7 +46,7 @@ set -x && cd test/build && cmake .. && make && ./m5stack-pixelart-test
 [  PASSED  ] 25 tests.
 ```
 
-**Build And Run Console Emulator**
+**Build And Run Console Emulator**  
 ```bash
 $ make test
 $ cd main/build/
@@ -54,5 +54,5 @@ $ cd main/build/
 ```
  
 # References
-**Pixel Art References**
+**Pixel Art References**  
 [デジタルモンスター Ver.20th ニューカラー3種 | デジモンウェブ | デジモン公式総合サイト](https://digimon.net/20th/)
